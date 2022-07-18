@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>updown</title> 
+	<link rel="stylesheet" href="updown.css">
+</head>
+<body>
+	<div id="wrapper">
+		<h1>숫자 맞히기 게임</h1>
+		<p>1에서 100 사이의 수를 입력하세요.</p>
+        <form action="">
+            <label><input type="text" id="try" autocomplete="off" autofocus onkeypress="enterkey()"></label>
+            <input type="button" value="확인" id="check" class="btn btn-1" onclick="finding()">
+            <input type="button" value="다시" id="reset" class="btn btn-2" onclick="window.location.reload()">
+        </form>
+        <div id="display" class="output"></div>
+        <div id="counter" class="footer"></div>
+	</div>
+	<script>
+        var counter = 0;
+        var randomNumber = parseInt(Math.random()*100+1);
+
+        function enterkey() {
+            if(window.event.KeyCode == 13) {
+                finding();
+            }
+        }
+
+        document.getElementById("try")
+
+        function finding() {
+            var userNumber = document.getElementById("try").value;
+
+            if(userNumber >= 1 && userNumber <= 100) {
+                
+                if(randomNumber > userNumber) {
+                    document.getElementById("display").innerText = "UP!";
+                }
+                else if(randomNumber < userNumber) {
+                    document.getElementById("display").innerText = "DOWN!"
+                }
+                else if(randomNumber == userNumber) {
+                    document.getElementById("display").innerText = "정답!"
+                    display.style.color = "red";
+                }
+                counter += 1;
+                document.getElementById("counter").innerText = `{counter}`;
+            }
+            else {
+                alert("1 ~ 100까지의 수만 입력하세요");
+            }
+        }
+	</script>
+</body>
+</html>
