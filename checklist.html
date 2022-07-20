@@ -14,7 +14,7 @@
             <input type="text" id="item" autofocus="true">
             <button type="button" id="add" class="addBtn" onclick="newElement()">추가</button>
         </form>
-        <ul id="itemList"></div>
+        <ul id="itemList"></ul>
     </div>
 
     <script>
@@ -22,7 +22,7 @@
         var i;
         for (i = 0; i < myList; i++) {
             var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7"); //이건 X 추가
+            var txt = document.createTextNode("\u00D7"); //X 추가
             span.className = "close";
             span.appendChild(txt); //줄줄이 나열하게 하기
             myList[i].appendChild(span);
